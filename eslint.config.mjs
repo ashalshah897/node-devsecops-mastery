@@ -1,21 +1,18 @@
 import js from "@eslint/js";
+import globals from "globals";
 
 export default [
     js.configs.recommended,
     {
+        languageOptions: {
+            globals: {
+                ...globals.node,
+                ...globals.jest
+            }
+        },
         rules: {
             "no-unused-vars": "error",
             "no-undef": "error"
-        },
-        languageOptions: {
-            globals: {
-                process: "readonly",
-                module: "writable",
-                require: "readonly",
-                describe: "readonly",
-                it: "readonly",
-                expect: "readonly"
-            }
         }
     }
 ];
