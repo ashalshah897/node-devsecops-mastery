@@ -1,4 +1,3 @@
-const unusedVariable = "I am breaking the lint rules";
 const express = require('express');
 const app = express();
 
