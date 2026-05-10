@@ -27,3 +27,12 @@ jobs:
 
       - name: Run Unit Tests
         run: npm test
+
+      - name: Slack Notification
+        if: always() 
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_COLOR: ${{ job.status == 'success' && 'good' || 'danger' }}
+          SLACK_MESSAGE: "Pipeline for ${{ github.repository }} finished with status: ${{ job.status }}"
+          SLACK_TITLE: "CI Pipeline Result"
