@@ -1,3 +1,4 @@
+# Slack Notification Trigger
 name: Node DevSecOps CI
 
 on:
